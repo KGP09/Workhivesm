@@ -44,7 +44,7 @@ const populateThread = async (ctx: QueryCtx, messageId: Id<"messages">) => {
 const populateReactions = (ctx: QueryCtx, messageId: Id<"messages">) => {
   return ctx.db
     .query("reactions")
-    .withIndex("by_messageId", (q) => q.eq("messageId", messageId))
+    .withIndex("by_message_id", (q) => q.eq("messageId", messageId))
     .collect();
 };
 const populateUser = (ctx: QueryCtx, userId: Id<"users">) => {
